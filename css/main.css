@@ -32,21 +32,22 @@ h1 {
     font-size: 68px;
 }
 
+h2 {
+    text-transform:uppercase;
+    font-size: 34px;
+}
+
 
 .home-grid {
     display:grid;
     grid-template-columns:375px 2fr;
-    grid-gap:1.25em;
-    margin-top:1.75em;
-    margin-bottom:1.75em;
-    margin-left:2.5em;
-    margin-right:2.5em;
+    grid-gap:1.75em;
+    margin: 1.25em 2.25em;
 }
 
 .home-grid-left {
     text-align:right;
 }
-
 
 .home-grid-right {
     display:grid;
@@ -149,10 +150,23 @@ button:hover {
 }
 
 .sidemenu a {
-    color: white;
-    font-size: 20px;
+    display: inline-block;
     text-decoration: none;
-    white-space: nowrap;
+    font-size:1rem;
+    font-family: "BIZ UDMincho", serif;
+
+    color:#3945B7;
+    background:white;
+    
+    border:1px solid #FFF;
+    padding:0.25em 1em;
+    border-radius:1em;
+    margin-bottom: 1em;
+}
+
+.sidemenu a:hover {
+    background:#3945B7;
+    color:white;
 }
 
 .grid-right {
