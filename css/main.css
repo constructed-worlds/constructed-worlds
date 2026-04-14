@@ -1,6 +1,4 @@
 
-
-
 * {
     box-sizing:border-box;
 }
@@ -35,9 +33,12 @@ h1 {
 
 .home-grid {
     display:grid;
-    grid-template-columns:400px 2fr;
-    grid-gap:1.25em;
-    margin:1.25em;
+    grid-template-columns:280px 2fr;
+    grid-gap:1.5em;
+    margin-top:1.5em;
+    margin-bottom:1.5em;
+    margin-left:2em;
+    margin-right:2em;
 }
 
 .home-grid-left {
@@ -49,13 +50,7 @@ h1 {
     display:grid;
     grid-template-columns: 1fr 1fr;
     grid-gap:0.4em;
-}
-
-.rectangle2 {
-    border:4px solid white;
-    border-radius:10px;
-    aspect-ratio: 1/1;
-    
+    grid-auto-rows: 1fr;
 }
 
 button {
@@ -75,12 +70,14 @@ button:hover {
     color:white;
 }
 
-.rectangle2 { 
+.rectangle2 {
+    border:4px solid white;
+    border-radius:10px;
     background: rgb(57, 69, 183); 
-    border-radius: 14px; 
-    aspect-ratio: 16/16;
     overflow: hidden;
-    position: relative
+    position: relative;
+    width: 100%;
+    height: 100%;
 }
 
 .rectangle2 a {
@@ -123,6 +120,10 @@ button:hover {
   display: none;
 }
 
+.about {
+    font-size: 18px;
+}
+
 .rectangle { 
     background: rgb(57, 69, 183); 
     border-radius: 14px; 
@@ -158,5 +159,11 @@ button:hover {
 .grid-right {
     display:grid;
     grid-template-columns: 1fr;
+    grid-gap:0.4em;
+}
+
+.container {
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-gap:0.4em;
 }
