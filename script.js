@@ -10,37 +10,46 @@ buttons.forEach(button => {
     const year = button.dataset.year;
     const country = button.dataset.country;
 
-    // -----------------------
-    // UPDATE STATE SAFELY
-    // -----------------------
+    // -------------------------
+    // UPDATE STATE
+    // -------------------------
     if (year !== undefined) {
-      activeYear = (activeYear === year) ? "*" : year;
+      activeYear = year;
     }
 
     if (country !== undefined) {
-      activeCountry = (activeCountry === country) ? "*" : country;
+      activeCountry = country;
     }
 
-    // -----------------------
-    // RESET BUTTON STATES
-    // -----------------------
+    // If "All" clicked → reset everything
+    if (activeYear === "*" && activeCountry === "*") {
+      activeYear = "*";
+      activeCountry = "*";
+    }
+
+    // -------------------------
+    // BUTTON VISUAL STATE RESET
+    // -------------------------
     buttons.forEach(btn => {
-      btn.classList.remove("active-year", "active-country");
+      btn.classList.remove("active");
     });
 
-    // Reapply active styles safely (no querySelector needed)
+    // Highlight current active buttons
     buttons.forEach(btn => {
-      if (btn.dataset.year === activeYear) {
-        btn.classList.add("active-year");
+      if (btn.dataset.year === activeYear && activeYear !== "*") {
+        btn.classList.add("active");
       }
-      if (btn.dataset.country === activeCountry) {
-        btn.classList.add("active-country");
+      if (btn.dataset.country === activeCountry && activeCountry !== "*") {
+        btn.classList.add("active");
+      }
+      if (activeYear === "*" && activeCountry === "*" && btn.dataset.year === "*" && btn.dataset.country === "*") {
+        btn.classList.add("active");
       }
     });
 
-    // -----------------------
+    // -------------------------
     // FILTER ITEMS
-    // -----------------------
+    // -------------------------
     items.forEach(item => {
 
       const matchesYear =

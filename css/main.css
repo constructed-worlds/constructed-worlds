@@ -98,16 +98,6 @@ button.active {
   color: white;
 }
 
-.active-year {
-  background: #3945B7;
-  color: white;
-}
-
-.active-country {
-  background: #3945B7;
-  color: white;
-}
-
 .rectangle2 {
     border:4px solid white;
     border-radius:10px;
