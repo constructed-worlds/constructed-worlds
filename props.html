@@ -30,7 +30,7 @@
         <div class="header">
             <H2>Props</H2>
             <section class="filters">
-                <button data-year="*">All</button>
+                <button data-year="*" data-country="*">All</button>
                 <button data-year=".y1970s">1970s</button>
                 <button data-year=".y1980s">1980s</button>
                 <button data-year=".y1990s">1990s</button>
@@ -50,10 +50,10 @@
             <div class="rectangle y2020s">
                 <a href="Substanceprops.html">
                 <img src="images/Substance_props1.png" alt="The Substance Props">
-                <span class="hover-text">The Substance (2025)</span>
+                <span class="hover-text">The Substance (2024)</span>
                 </a>
             </div>
-            <div class="rectangle y2010s">
+            <div class="rectangle y2010s US">
                 <a href="MKprops.html">
                 <img src="images/MK_props1.jpg" alt="Moonrise Kingdom Props">
                 <span class="hover-text">Moonrise Kingdom (2012)</span>
@@ -72,25 +72,6 @@
             <!-- <div class="rectangle9"></div> -->
         </div>
 </section>
-
-<script>
-    const buttons = document.querySelectorAll("button");
-    const items = document.querySelectorAll(".rectangle");
-
-    buttons.forEach(button => {
-    button.addEventListener("click", () => {
-    const filter = button.getAttribute("data-year");
-
-    items.forEach(item => {
-      if (filter === "*" || item.classList.contains(filter.substring(1))) {
-        item.classList.remove("hidden");
-      } else {
-        item.classList.add("hidden");
-      }
-    });
-  });
-});
-</script>
 
     </body>
 </html>
