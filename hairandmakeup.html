@@ -68,24 +68,7 @@
         </div>
 </section>
 
-<script>
-    const buttons = document.querySelectorAll("button");
-    const items = document.querySelectorAll(".rectangle");
-
-    buttons.forEach(button => {
-    button.addEventListener("click", () => {
-    const filter = button.getAttribute("data-year");
-
-    items.forEach(item => {
-      if (filter === "*" || item.classList.contains(filter.substring(1))) {
-        item.classList.remove("hidden");
-      } else {
-        item.classList.add("hidden");
-      }
-    });
-  });
-});
-</script>
+<script src="script.js"></script>
 
     </body>
 </html>

@@ -1,18 +1,38 @@
+const mainImage = document.getElementById("current");
+const thumbnails = document.querySelectorAll(".thumb");
 const buttons = document.querySelectorAll("button");
 const items = document.querySelectorAll(".rectangle");
 
+// ----------------------
+// THUMBNAILS (separate logic)
+// ----------------------
+thumbnails.forEach(img => {
+  img.addEventListener("click", () => {
+    mainImage.src = img.src;
+
+    thumbnails.forEach(t => t.classList.remove("active"));
+    img.classList.add("active");
+  });
+});
+
+// ----------------------
+// FILTER STATE
+// ----------------------
 let activeYear = "*";
 let activeCountry = "*";
 
+// ----------------------
+// FILTER BUTTONS
+// ----------------------
 buttons.forEach(button => {
   button.addEventListener("click", () => {
 
     const year = button.dataset.year;
     const country = button.dataset.country;
 
-    // -------------------------
+    // ----------------------
     // UPDATE STATE
-    // -------------------------
+    // ----------------------
     if (year !== undefined) {
       activeYear = year;
     }
@@ -21,35 +41,24 @@ buttons.forEach(button => {
       activeCountry = country;
     }
 
-    // If "All" clicked → reset everything
-    if (activeYear === "*" && activeCountry === "*") {
-      activeYear = "*";
-      activeCountry = "*";
+    // ----------------------
+    // BUTTON VISUAL STATE
+    // ----------------------
+    buttons.forEach(btn => btn.classList.remove("active"));
+
+    if (activeYear !== "*") {
+      const yearBtn = document.querySelector(`[data-year="${activeYear}"]`);
+      yearBtn?.classList.add("active");
     }
 
-    // -------------------------
-    // BUTTON VISUAL STATE RESET
-    // -------------------------
-    buttons.forEach(btn => {
-      btn.classList.remove("active");
-    });
+    if (activeCountry !== "*") {
+      const countryBtn = document.querySelector(`[data-country="${activeCountry}"]`);
+      countryBtn?.classList.add("active");
+    }
 
-    // Highlight current active buttons
-    buttons.forEach(btn => {
-      if (btn.dataset.year === activeYear && activeYear !== "*") {
-        btn.classList.add("active");
-      }
-      if (btn.dataset.country === activeCountry && activeCountry !== "*") {
-        btn.classList.add("active");
-      }
-      if (activeYear === "*" && activeCountry === "*" && btn.dataset.year === "*" && btn.dataset.country === "*") {
-        btn.classList.add("active");
-      }
-    });
-
-    // -------------------------
+    // ----------------------
     // FILTER ITEMS
-    // -------------------------
+    // ----------------------
     items.forEach(item => {
 
       const matchesYear =
